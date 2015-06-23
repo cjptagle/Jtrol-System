@@ -23,23 +23,23 @@
 				<td>@{{ member.last_name }}</td>
 				<td>@{{ member.first_attend }}</td>
 			</tr>
-			<tr ng-repeat="(key, member) in members">
+			<tr>
 				<td>
-					<div class="input-group"><input type="text" class="form-control" name="first_name" placeholder="First Name" required></div>
+					<div class="input-group"><input type="text" class="form-control" name="first_name" placeholder="First Name" ng-model="member.firstname" required></div>
 				</td>
 				<td>
-					<div class="input-group"><input type="text" class="form-control" name="middle_name" placeholder="Middle Name" required></div>
+					<div class="input-group"><input type="text" class="form-control" name="middle_name" placeholder="Middle Name" ng-model="member.middlename" required></div>
 				</td>
 				<td>
-					<div class="input-group"><input type="text" class="form-control" name="last_name" placeholder="Last Name" required></div>
+					<div class="input-group"><input type="text" class="form-control" name="last_name" placeholder="Last Name" ng-model="member.lastname" required></div>
 				</td>
 				<td>
-					<div class="input-group"><input type="date" class="form-control" name="first_attend" value="" required></div>
+					<div class="input-group"><input type="date" class="form-control" name="first_attend" value="" ng-model="member.firstattend" required></div>
 				</td>
 			</tr>
 		</table>
 		<div class="panel-footer">
-			<button class="btn btn-success btn-sm">Add Member</button>
+			<button class="btn btn-success btn-sm" ng-click="addMember()">Add Member</button>
 		</div>
 	</div>
 </div>
