@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','AttendanceController@index');
 
-Route::resource('api/member', 'MemberController');
+Route::resource('api/member', 'MemberDataController',[
+	'only' => [
+		'index', 'store', 'update', 'destroy'
+	]
+]);

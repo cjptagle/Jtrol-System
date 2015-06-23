@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Member;
 
-class MemberController extends Controller
+class MemberDataController extends Controller
 {
 
     /**
@@ -19,7 +19,7 @@ class MemberController extends Controller
     public function index()
     {
         $members = Member::get();
-        return view('member.list', compact('members'));
+        return $members;
     }
 
     /**
@@ -39,7 +39,8 @@ class MemberController extends Controller
      */
     public function store()
     {
-        //
+        $member = Member::create(Request::all());
+        return $member;
     }
 
     /**
@@ -72,7 +73,10 @@ class MemberController extends Controller
      */
     public function update($id)
     {
-        //
+        $member = Member::find($id);
+        $member->save();
+
+        return $member;
     }
 
     /**
@@ -83,6 +87,6 @@ class MemberController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Member::destroy($id);
     }
 }
