@@ -1,4 +1,4 @@
-var app = angular.module('jtrol-app', ['ngRoute', 'ui.grid', 'ui.grid.pagination']);
+var app = angular.module('jtrol-app', ['ngRoute', 'ui.grid', 'ui.grid.pagination', 'ui.bootstrap']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when("/", {
@@ -6,12 +6,8 @@ app.config(['$routeProvider', function ($routeProvider) {
 
     });
     $routeProvider.when("/members", {
-    	controller: "list-controller",
+    	controller: "main-controller",
         templateUrl: "js/view/members.php"
-    });
-    $routeProvider.when("/add_member", {
-    	controller: "list-controller",
-        templateUrl: "js/view/add_member.php"
     });
     $routeProvider.when("/home", {
     	redirectTo: '/'
@@ -19,7 +15,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-app.controller('list-controller',['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGridConstants){
+app.controller('main-controller',['$scope', '$http', 'uiGridConstants', '$modal', '$log', function ($scope, $http, uiGridConstants, $modal, $log){
 	$scope.members = [];
 	$scope.member = '';
 	$scope.loading = false;
@@ -87,5 +83,25 @@ app.controller('list-controller',['$scope', '$http', 'uiGridConstants', function
 		$scope.gridApi.core.notifyDataChange( uiGridConstants.dataChange.COLUMN );
 	};	
 
+	$scope.openModalAddMember = function () {
+		var modalInstance = $modal.open({
+		animation: $scope.animationsEnabled,
+		templateUrl: 'myModalContent.html',
+		controller: 'ModalInstanceCtrl',
+		size: 'lg'
+	});
+
+	modalInstance.result.then(function (selectedItem) {
+		$scope.selected = selectedItem;
+		}, function () {
+		$log.info('Modal dismissed at: ' + new Date());
+		});
+	};
+
 	$scope.init();
 }]);
+
+
+app.controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
+
+});

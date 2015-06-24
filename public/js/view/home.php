@@ -1,5 +1,5 @@
 <?php include('includes/home_navbar.php') ?>
-<div id="myCarousel" class="carousel slide" data-ride="carousel" style="heigth:100%">
+<div id="myCarousel" class="carousel slide" data-ride="carousel" style="heigth:100%" ng-non-bindable>
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>

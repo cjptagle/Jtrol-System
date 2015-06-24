@@ -15,7 +15,7 @@
 		</div>
 		<div class="panel-body">
 			<p>This is the listing of Jesus the River of Life Gospel Church's members</p>	
-			<a class="btn btn-success btn-sm" href="#/add_member">Add Member</a>
+			<button class="btn btn-success btn-sm" ng-click="openModalAddMember()">Add Member</button>
 			<hr>
 			<div ui-grid="gridOptions" ui-grid-pagination></div>
 		</div>
@@ -23,3 +23,37 @@
 		<!-- Table -->
 	</div>
 </div>
+
+<script type="text/ng-template" id="myModalContent.html">
+	<div class="modal-header">
+	    <h3 class="modal-title">Register a member</h3>
+	</div>
+	<div class="modal-body">
+	<div class="row">
+	<div class="col-md-2"></div>
+    <div class="col-md-8">
+		<center><h4>Jesus <small>is welcoming you in Jesus the River of Life Gospel Church!</small></h4></center>
+		<hr class="colorgraph">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="First Name">
+			</div>
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Middle Name">
+			</div>	
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Last Name">
+			</div
+			><div class="form-group">
+				<input type="date" class="form-control" placeholder="Last Name">
+			</div>
+
+		</div>
+	<div class="col-md-2"></div>
+
+	</div>
+	</div>
+	<div class="modal-footer">
+	    <button class="btn btn-primary btn-lg" ng-click="ok()">Add</button>
+	    <button class="btn btn-warning btn-lg" ng-click="cancel()">Cancel</button>
+	</div>
+</script>
