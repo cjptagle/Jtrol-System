@@ -17,7 +17,7 @@
 	{!! HTML::script('js/jquery-2.1.1.js') !!}
 	{!! HTML::script('js/bootstrap.js') !!}
 </head>
-<body>
+<body ng-controller="list-controller">
 	@include('includes.navbar')
 	
 	<ng-view></ng-view>

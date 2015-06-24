@@ -6,7 +6,8 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  color: #5a5a5a;
+  color: black;
+  background-color: #3498db;
 }
 
 /* CUSTOMIZE THE NAVBAR
@@ -21,7 +22,7 @@ html, body {
   z-index: 20;
 }
 
-.navbar {
+.transparent {
    background-color: transparent;
    background: transparent;
    border-color: transparent;

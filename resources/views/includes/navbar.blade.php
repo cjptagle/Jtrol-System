@@ -1,19 +1,19 @@
-<div class="navbar-wrapper">
+<div class="navbar-wrapper" ng-style="nav_wrapper_style">
 	<div class="container">
-		<nav class="navbar navbar-inverse navbar-static-top">
+		<nav class="navbar transparent navbar-inverse navbar-static-top">
 			<div class="container">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
+					<span class"=sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#" style="color:white; font-weight:bold"><i>Jesus the River of Life Gospel Church</i></a>
+					<a class="navbar-brand" href="#/home" style="color:white; font-weight:bold"><i>Jesus the River of Life Gospel Church</i></a>
 				</div>
 				<div id="navbar" class="navbar-collapse collapse navbar-right">
 					<ul class="nav navbar-nav">
-							<li><a href="#">Home</a></li>
+							<li><a href="#/members">Members</a></li>
 							<li><a href="#about">About</a></li>
 							<li><a href="#contact">Contact</a></li>
 							<li class="dropdown">
