@@ -1,4 +1,4 @@
-var app = angular.module('jtrol-app', ['ngRoute']);
+var app = angular.module('jtrol-app', ['ngRoute', 'ui.grid', 'ui.grid.pagination']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when("/", {
@@ -19,22 +19,33 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-app.controller('list-controller',['$scope', '$http', '$route', '$routeParams', '$location', function ($scope, $http, $route, $routeParams, $location){
-	$scope.$route = $route;
-	$scope.$location = $location;	
-	$scope.$routeParams = $routeParams;
-	
+app.controller('list-controller',['$scope', '$http', function ($scope, $http){
 	$scope.members = [];
 	$scope.member = '';
 	$scope.loading = false;
-	
+
+
+
 	$scope.init = function() {
 		$scope.loading = true;
 
 		$http.get('/api/member').success(function(data, status, headers, config) {
 			$scope.members = data;
+		  	console.log(data);
 			$scope.loading = false;
 		});
+		$scope.gridOptions = {
+	        data: 'members',
+	        paginationPageSizes: [5, 10, 25],
+	        paginationPageSize: 5,
+	        columnDefs: [
+	          {name: 'id'},
+	          {name: 'last_name'},
+	          {name: 'first_name'},
+	          {name: 'middle_name'},
+	          {name: 'first_attend'},
+	        ]
+        }
 	}
 
 	$scope.addMember = function() {

@@ -16,6 +16,10 @@
 	<!-- Main JS -->
 	{!! HTML::script('js/jquery-2.1.1.js') !!}
 	{!! HTML::script('js/bootstrap.js') !!}
+
+	<!--ng ui-grid  -->
+	{!! HTML::style('css/ui-grid-unstable.css') !!}
+	{!! HTML::script('js/ui-grid-unstable.js') !!}
 </head>
 <body>
 
