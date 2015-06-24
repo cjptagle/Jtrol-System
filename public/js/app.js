@@ -103,5 +103,7 @@ app.controller('main-controller',['$scope', '$http', 'uiGridConstants', '$modal'
 
 
 app.controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-
+	$scope.cancel = function () {
+		$modalInstance.dismiss('cancel');
+	};
 });
