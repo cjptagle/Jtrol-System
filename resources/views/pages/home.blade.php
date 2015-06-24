@@ -4,7 +4,7 @@
 @section('content')
 <!-- Carousel
 ================================================== -->
-
+ 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="heigth:100%">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
@@ -16,31 +16,37 @@
 		<div class="item active">
 		{!! HTML::image('images/img1.jpg', 'image', ['class' => 'image-responsive']) !!}
 			<div class="container">
-				<div class="carousel-caption">
-				<h1>Example headline.</h1>
-				<p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
-				<p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-				</div>
+				<div class="hero">
+			        <hgroup>
+			            <h1>LOVE</h1>        
+			            <h3> Dear friends, let us love one another, for love comes from God. Everyone who loves has been born of God and knows God.</h3>
+			        	<h4><i>1 John 4:7</i></h4>
+			        </hgroup>
+			      </div>
 			</div>
 		</div>
 		<div class="item">
 			{!! HTML::image('images/img2.jpg', 'image', ['class' => 'image-responsive']) !!}
 			<div class="container">
-			<div class="carousel-caption">
-				<h1>Another example headline.</h1>
-				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-				<p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-			</div>
+				<div class="hero">
+			        <hgroup>
+			            <h1>Hope</h1>        
+			            <h3>For I know the plans I have for you, declares the Lord, plans for welfare and not for evil, to give you a future and a hope.</h3>
+			            <h4><i>Jeremiah 29:11</i></h4>
+			        </hgroup>
+			    </div>
 			</div>
 		</div>
 		<div class="item">
 			{!! HTML::image('images/img3.jpg', 'image', ['class' => 'image-responsive']) !!}
 			<div class="container">
-				<div class="carousel-caption">
-				<h1>One more for good measure.</h1>
-				<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-				<p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
-				</div>
+				<div class="hero">
+			        <hgroup>
+			            <h1>Faith</h1>        
+			            <h3>Now faith is confidence in what we hope for and assurance about what we do not see.</h3>
+			            <h4><i>Hebrews 11:1</i></h4>
+			        </hgroup>
+			    </div>
 			</div>
 		</div>
 	</div>

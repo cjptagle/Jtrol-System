@@ -45,11 +45,25 @@ html, body {
   width:100%;
 }
 
-.fill {
-  height:100%;
-  width:100%;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
+.hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 0 rgba(0,0,0,.75);
+      -webkit-transform: translate3d(-50%,-50%,0);
+         -moz-transform: translate3d(-50%,-50%,0);
+          -ms-transform: translate3d(-50%,-50%,0);
+           -o-transform: translate3d(-50%,-50%,0);
+              transform: translate3d(-50%,-50%,0);
+}
+.hero h1 {
+    font-size: 6em;    
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
 }
 
 /* Carousel base class */
@@ -60,8 +74,6 @@ html, body {
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   color:#fff;
-  position:absolute;
-  z-index:12;
   top:50%;
   text-align:center;
   /*height: 100%;*/ 
@@ -86,6 +98,7 @@ html, body {
   left: 0;
   min-height: 100%;
   min-width: 100%;
+  opacity: .7 ;
 }
 
 
