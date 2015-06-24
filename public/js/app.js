@@ -24,30 +24,49 @@ app.controller('list-controller',['$scope', '$http', function ($scope, $http){
 	$scope.member = '';
 	$scope.loading = false;
 
-
+	$scope.gridOptions = {
+        paginationPageSizes: [5, 10, 25],
+        paginationPageSize: 5,
+        enableFiltering: true,
+		onRegisterApi: function(gridApi){
+			$scope.gridApi = gridApi;
+			$scope.gridApi.grid.registerRowsProcessor( $scope.singleFilter, 200 );
+		},
+        columnDefs: [
+			{
+				field: 'id',
+				filter: { placeholder: 'Filter Id' }
+			},
+			{
+				field: 'last_name',
+				filter: { placeholder: 'FilterLast Name' }
+			},
+			{
+				field: 'first_name',
+				filter: { placeholder: 'Filter First Name' }
+			},
+			{
+				field: 'middle_name',
+				filter: { placeholder: 'Filter Middle Name' }
+			},
+			{
+				field: 'first_attend',
+				filter: { placeholder: 'Filter First Date Attended' }
+			},
+			]
+    	}
 
 	$scope.init = function() {
 		$scope.loading = true;
 
 		$http.get('/api/member').success(function(data, status, headers, config) {
 			$scope.members = data;
-		  	console.log(data);
+		  	$scope.gridOptions.data = $scope.members;
 			$scope.loading = false;
 		});
-		$scope.gridOptions = {
-	        data: 'members',
-	        paginationPageSizes: [5, 10, 25],
-	        paginationPageSize: 5,
-	        columnDefs: [
-	          {name: 'id'},
-	          {name: 'last_name'},
-	          {name: 'first_name'},
-	          {name: 'middle_name'},
-	          {name: 'first_attend'},
-	        ]
-        }
-	}
-
+		
+	}	
+	
 	$scope.addMember = function() {
 		$scope.loading = true;
 
@@ -63,6 +82,10 @@ app.controller('list-controller',['$scope', '$http', function ($scope, $http){
 
 		});
 	};
+
+	$scope.toggleFiltering = function(){
+		$scope.gridOptions.enableFiltering = !$scope.gridOptions.enableFiltering;
+	};	
 
 	$scope.init();
 }]);

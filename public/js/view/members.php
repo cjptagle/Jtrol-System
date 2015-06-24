@@ -7,8 +7,11 @@
 			<div class="row">
 				<div class="col-md-6"><h4>Member Lists</h4></div>
 				<div class="col-md-6">
-					<div class="form-group-sm">
-						<input type="text" class="form-control" placeholder="Search Member" ng-model="filterName">
+					<div class="navbar-form navbar-right" role="search">
+						<!-- <div class="form-group">
+							<input type="text" class="form-control" placeholder="Search Record">
+						</div> -->
+						<button type="submit" class="btn btn-default" ng-click='toggleFiltering()'>Toggle Record Filter</button>
 					</div>
 				</div>
 			</div>		
