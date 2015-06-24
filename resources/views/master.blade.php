@@ -20,7 +20,7 @@
 <body>
 	@include('includes.navbar')
 	
-	@yield('content')
-
+	<ng-view></ng-view>
+<!-- 	@yield('content')	 -->
 </body>
 </html>

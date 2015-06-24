@@ -1,4 +1,12 @@
-var app = angular.module('jtrol-app', []);
+var app = angular.module('jtrol-app', ['ngRoute']);
+
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider.when("/", {
+    	controller: "list-controller",
+        templateUrl: "js/view/home.blade.php"
+    });
+}]);
+
 
 app.controller('list-controller',['$scope', '$http', function ($scope, $http){
 	$scope.members = [];
