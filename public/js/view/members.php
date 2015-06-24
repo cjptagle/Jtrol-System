@@ -1,4 +1,6 @@
-<div class="container">
+<?php include('includes/page_navbar.php') ?>
+
+<div class="container" style="margin-top:8%">
 	<div class="panel panel-primary">
 		<!-- Default panel contents -->
 		<div class="panel-heading">

@@ -1,4 +1,4 @@
-
+<?php include('includes/home_navbar.php') ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="heigth:100%">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
