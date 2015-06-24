@@ -19,7 +19,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 }]);
 
 
-app.controller('list-controller',['$scope', '$http', function ($scope, $http){
+app.controller('list-controller',['$scope', '$http', 'uiGridConstants', function ($scope, $http, uiGridConstants){
 	$scope.members = [];
 	$scope.member = '';
 	$scope.loading = false;
@@ -30,7 +30,6 @@ app.controller('list-controller',['$scope', '$http', function ($scope, $http){
         enableFiltering: true,
 		onRegisterApi: function(gridApi){
 			$scope.gridApi = gridApi;
-			$scope.gridApi.grid.registerRowsProcessor( $scope.singleFilter, 200 );
 		},
         columnDefs: [
 			{
@@ -52,9 +51,9 @@ app.controller('list-controller',['$scope', '$http', function ($scope, $http){
 			{
 				field: 'first_attend',
 				filter: { placeholder: 'Filter First Date Attended' }
-			},
-			]
-    	}
+			}
+		]
+	}	
 
 	$scope.init = function() {
 		$scope.loading = true;
@@ -85,6 +84,7 @@ app.controller('list-controller',['$scope', '$http', function ($scope, $http){
 
 	$scope.toggleFiltering = function(){
 		$scope.gridOptions.enableFiltering = !$scope.gridOptions.enableFiltering;
+		$scope.gridApi.core.notifyDataChange( uiGridConstants.dataChange.COLUMN );
 	};	
 
 	$scope.init();
