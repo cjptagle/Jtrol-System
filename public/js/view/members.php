@@ -1,6 +1,6 @@
 <?php include('includes/page_navbar.php') ?>
 
-<div class="container" style="margin-top:8%">
+<div class="container">
 	<div class="panel panel-primary">
 		<!-- Default panel contents -->
 		<div class="panel-heading">
@@ -15,6 +15,7 @@
 		</div>
 		<div class="panel-body">
 			<p>This is the listing of Jesus the River of Life Gospel Church's members</p>	
+			<a class="btn btn-success btn-sm" href="#/add_member">Add Member</a>
 		</div>
 
 		<!-- Table -->
@@ -31,7 +32,7 @@
 				<td>{{ member.last_name }}</td>
 				<td>{{ member.first_attend }}</td>
 			</tr>
-			<tr>
+<!-- 			<tr>
 				<td>
 					<div class="form-group-sm"><input type="text" class="form-control" name="first_name" placeholder="First Name" ng-model="member.firstname" required></div>
 				</td>
@@ -44,10 +45,7 @@
 				<td>
 					<div class="form-group-sm"><input type="date" class="form-control" name="first_attend" value="" ng-model="member.firstattend" required></div>
 				</td>
-			</tr>
+			</tr> -->
 		</table>
-		<div class="panel-footer">
-			<button class="btn btn-success btn-sm" ng-click="addMember()">Add Member</button>
-		</div>
 	</div>
 </div>

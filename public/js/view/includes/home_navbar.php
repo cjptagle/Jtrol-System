@@ -1,4 +1,4 @@
-<div class="navbar-wrapper" id="wrapper">
+<div class="navbar-wrapper">
 	<div class="container">
 		<nav class="navbar transparent navbar-inverse navbar-static-top">
 			<div class="container">

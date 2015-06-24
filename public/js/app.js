@@ -9,6 +9,10 @@ app.config(['$routeProvider', function ($routeProvider) {
     	controller: "list-controller",
         templateUrl: "js/view/members.php"
     });
+    $routeProvider.when("/add_member", {
+    	controller: "list-controller",
+        templateUrl: "js/view/add_member.php"
+    });
     $routeProvider.when("/home", {
     	redirectTo: '/'
     });

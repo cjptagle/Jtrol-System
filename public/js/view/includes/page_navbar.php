@@ -1,4 +1,4 @@
-<div class="navbar-wrapper" id="wrapper">
+<div class="navbar-wrapper" style="position: inherit">
 	<div class="container">
 		<nav class="navbar navbar-inverse navbar-static-top">
 			<div class="container">
