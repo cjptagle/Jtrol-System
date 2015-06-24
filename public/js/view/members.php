@@ -35,16 +35,16 @@
 		<center><h4>Jesus <small>is welcoming you in Jesus the River of Life Gospel Church!</small></h4></center>
 		<hr class="colorgraph">
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="First Name">
+				<input type="text" class="form-control" placeholder="First Name" ng-model="member.firstname">
 			</div>
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Middle Name">
+				<input type="text" class="form-control" placeholder="Middle Name" ng-model="member.middlename">
 			</div>	
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Last Name">
-			</div
-			><div class="form-group">
-				<input type="date" class="form-control" placeholder="Last Name">
+				<input type="text" class="form-control" placeholder="Last Name"  ng-model="member.lastname">
+			</div>
+			<div class="form-group">
+				<input type="date" class="form-control" placeholder="Last Name"  ng-model="member.firstattend">
 			</div>
 
 		</div>
@@ -53,7 +53,7 @@
 	</div>
 	</div>
 	<div class="modal-footer">
-	    <button class="btn btn-primary btn-lg" ng-click="ok()">Add</button>
+	    <button class="btn btn-primary btn-lg" ng-click="addMember()">Add</button>
 	    <button class="btn btn-warning btn-lg" ng-click="cancel()">Cancel</button>
 	</div>
 </script>
