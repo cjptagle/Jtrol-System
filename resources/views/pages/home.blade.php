@@ -4,6 +4,7 @@
 @section('content')
 <!-- Carousel
 ================================================== -->
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel" style="heigth:100%">
 	<!-- Indicators -->
 	<ol class="carousel-indicators">
@@ -13,7 +14,7 @@
 	</ol>
 	<div class="carousel-inner" role="listbox">
 		<div class="item active">
-			<div class="fill" style="background-image:url(../images/img1.jpg);"></div>
+		{!! HTML::image('images/img1.jpg', 'image', ['class' => 'image-responsive']) !!}
 			<div class="container">
 				<div class="carousel-caption">
 				<h1>Example headline.</h1>
@@ -23,7 +24,7 @@
 			</div>
 		</div>
 		<div class="item">
-			<div class="fill" style="background-image:url(../images/img2.jpg);"></div>
+			{!! HTML::image('images/img2.jpg', 'image', ['class' => 'image-responsive']) !!}
 			<div class="container">
 			<div class="carousel-caption">
 				<h1>Another example headline.</h1>
@@ -33,7 +34,7 @@
 			</div>
 		</div>
 		<div class="item">
-			<div class="fill" style="background-image:url(../images/img3.jpg);"></div>
+			{!! HTML::image('images/img3.jpg', 'image', ['class' => 'image-responsive']) !!}
 			<div class="container">
 				<div class="carousel-caption">
 				<h1>One more for good measure.</h1>
