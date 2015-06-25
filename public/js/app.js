@@ -13,11 +13,12 @@ app.config(['$routeProvider', 'toastrConfig', function ($routeProvider, toastrCo
 	 * ============================================= */
 
     $routeProvider.when("/", {
-        templateUrl: "js/view/home.php"
+        templateUrl: "js/view/home.php",
+        controller: "mainController"
 
     });
     $routeProvider.when("/members", {
-    	controller: "main-controller",
+    	controller: "memberController",
         templateUrl: "js/view/members.php"
     });
     $routeProvider.when("/home", {
@@ -49,7 +50,7 @@ app.config(['$routeProvider', 'toastrConfig', function ($routeProvider, toastrCo
 		onHidden: null,
 		onShown: null,
 		positionClass: 'toast-bottom-right',
-		preventDuplicates: false,
+		preventDuplicates: true,
 		preventOpenDuplicates: false,
 		progressBar: true,
 		tapToDismiss: true,
@@ -69,11 +70,23 @@ app.config(['$routeProvider', 'toastrConfig', function ($routeProvider, toastrCo
  * Main Controller
  * ============================================= */
 
-app.controller('main-controller',['$scope', '$http', 'uiGridConstants', '$modal', '$log', 'toastr', function ($scope, $http, uiGridConstants, $modal, $log, toastr){
+app.controller('mainController', ['$scope', '$http', 'toastr', function ($scope, $http, toastr){	
+    /**
+     * Initial function
+     */
+
+	$scope.init = function() {
+		toastr.success('JTROL Ushering System!', 'Welcome!');		
+	};	
+
+	$scope.init();
+}]);
+
+app.controller('memberController', ['$scope', '$http', 'uiGridConstants', '$modal', '$log', 'toastr', function ($scope, $http, uiGridConstants, $modal, $log, toastr){
 	$scope.members = [];
 	$scope.loading = false;
 	$scope.member = '';
- 	toastr.success('Hello world!', 'Toastr fun!');
+ 	
 	$scope.gridOptions = {
         paginationPageSizes: [5, 10, 25],
         paginationPageSize: 5,
@@ -108,13 +121,10 @@ app.controller('main-controller',['$scope', '$http', 'uiGridConstants', '$modal'
 	
     /**
      * Initial function
-     * - Assign value to $scope.members usign members api
-     * - Assign value to GridOptions
      */
 
 	$scope.init = function() {
 		$scope.loading = true;
-
 		$http.get('/api/member').success(function(data, status, headers, config) {
 			$scope.members = data;
 		  	$scope.gridOptions.data = $scope.members;
@@ -126,8 +136,6 @@ app.controller('main-controller',['$scope', '$http', 'uiGridConstants', '$modal'
 
 	/**
      * Adding member function
-     * - Assign value to $scope.members usign members api
-     * - Assign value to GridOptions
      */
 
 	$scope.addMember = function() {

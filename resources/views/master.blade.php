@@ -31,7 +31,7 @@
 	{!! HTML::style('css/angular-toastr.min.css') !!}
 	{!! HTML::script('js/angular-toastr.tpls.min.js') !!}
 </head>
-<body ng-controller="main-controller">
+<body>
 	<ng-view></ng-view>
 </body>
 </html>
