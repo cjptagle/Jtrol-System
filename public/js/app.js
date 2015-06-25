@@ -1,6 +1,17 @@
-var app = angular.module('jtrol-app', ['ngRoute', 'ui.grid', 'ui.grid.pagination', 'ui.bootstrap']);
+/* =============================================
+ * AngularJS - JTROL - Ushering System
+ * https://github.com/gidj02/Jtrol-System
+ * ============================================= */
 
-app.config(['$routeProvider', function ($routeProvider) {
+var app = angular.module('jtrol-app', ['ngRoute', 'ui.grid', 'ui.grid.pagination', 'ui.bootstrap', 'toastr', 'ngAnimate']);
+
+app.config(['$routeProvider', 'toastrConfig', function ($routeProvider, toastrConfig) {
+
+	/* =============================================
+	 * Routing Configuratipon
+	 * ngRoute
+	 * ============================================= */
+
     $routeProvider.when("/", {
         templateUrl: "js/view/home.php"
 
@@ -12,14 +23,57 @@ app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when("/home", {
     	redirectTo: '/'
     });
+
+
+	/* =============================================
+	 * AngularJS - Toastr Configuratipon
+	 * https://github.com/Foxandxss/angular-toastr
+	 * ============================================= */
+
+    angular.extend(toastrConfig, {
+		allowHtml: false,
+		autoDismiss: false,
+		closeButton: true,
+		closeHtml: '<button>&times;</button>',
+		containerId: 'toast-container',
+		extendedTimeOut: 1000,
+		iconClasses: {
+			error: 'toast-error',
+			info: 'toast-info',
+			success: 'toast-success',
+			warning: 'toast-warning'
+		},
+		maxOpened: 0,    
+		messageClass: 'toast-message',
+		newestOnTop: true,
+		onHidden: null,
+		onShown: null,
+		positionClass: 'toast-bottom-right',
+		preventDuplicates: false,
+		preventOpenDuplicates: false,
+		progressBar: true,
+		tapToDismiss: true,
+		target: 'body',
+		templates: {
+			toast: 'directives/toast/toast.html',
+			progressbar: 'directives/progressbar/progressbar.html'
+		},
+		timeOut: 5000,
+		titleClass: 'toast-title',
+		toastClass: 'toast'
+	});
 }]);
 
 
-app.controller('main-controller',['$scope', '$http', 'uiGridConstants', '$modal', '$log', function ($scope, $http, uiGridConstants, $modal, $log, $modalInstance){
+/* =============================================
+ * Main Controller
+ * ============================================= */
+
+app.controller('main-controller',['$scope', '$http', 'uiGridConstants', '$modal', '$log', 'toastr', function ($scope, $http, uiGridConstants, $modal, $log, toastr){
 	$scope.members = [];
 	$scope.loading = false;
 	$scope.member = '';
-
+ 	toastr.success('Hello world!', 'Toastr fun!');
 	$scope.gridOptions = {
         paginationPageSizes: [5, 10, 25],
         paginationPageSize: 5,
@@ -51,6 +105,13 @@ app.controller('main-controller',['$scope', '$http', 'uiGridConstants', '$modal'
 		]
 	}	
 
+	
+    /**
+     * Initial function
+     * - Assign value to $scope.members usign members api
+     * - Assign value to GridOptions
+     */
+
 	$scope.init = function() {
 		$scope.loading = true;
 
@@ -62,6 +123,12 @@ app.controller('main-controller',['$scope', '$http', 'uiGridConstants', '$modal'
 		
 	};	
 
+
+	/**
+     * Adding member function
+     * - Assign value to $scope.members usign members api
+     * - Assign value to GridOptions
+     */
 
 	$scope.addMember = function() {
 		$scope.loading = true;
