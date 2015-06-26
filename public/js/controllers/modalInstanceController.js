@@ -2,19 +2,22 @@
  * Modal Instance Controller
  * ============================================= */
 
-app.controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
-	$scope.member = [{
+app.controller('ModalInstanceCtrl', function ($modalInstance) {
+	
+	ModalInstance = this;
+
+	ModalInstance.member = [{
 		firstname: '',
 		middlename: '',
 		lastname: '',
 		firstattend: ''
 	}];
 	
-	$scope.addMember = function () {
-		$modalInstance.close($scope.member);
+	ModalInstance.addMember = function () {
+		$modalInstance.close(ModalInstance.member);
 	};
 
-	$scope.cancel = function () {
+	ModalInstance.cancel = function () {
 		$modalInstance.dismiss('cancel');
 	};
 });

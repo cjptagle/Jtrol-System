@@ -14,11 +14,11 @@ app.config(['$routeProvider', 'toastrConfig', function ($routeProvider, toastrCo
 
     $routeProvider.when("/", {
         templateUrl: "js/view/home.php",
-        controller: "mainController"
+        controller: "mainController as Main"
 
     });
     $routeProvider.when("/members", {
-    	controller: "memberController",
+    	controller: "memberController as Member",
         templateUrl: "js/view/members.php"
     });
     $routeProvider.when("/home", {

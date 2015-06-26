@@ -2,14 +2,16 @@
  * Main Controller
  * ============================================= */
 
-app.controller('mainController', ['$scope', '$http', 'toastr', function ($scope, $http, toastr){	
+app.controller('mainController', ['$http', 'toastr', function ($http, toastr){	
+
+    Main = this;
+
     /**
      * Initial function
      */
-
-	$scope.init = function() {
+	Main.init = function() {
 		toastr.success('JTROL Ushering System!', 'Welcome!');		
 	};	
 
-	$scope.init();
+	Main.init();
 }]);

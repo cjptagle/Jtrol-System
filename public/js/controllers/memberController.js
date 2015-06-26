@@ -2,17 +2,20 @@
  * Member Controller
  * ============================================= */
 
-app.controller('memberController', ['$scope', '$http', 'uiGridConstants', '$modal', '$log', 'toastr', function ($scope, $http, uiGridConstants, $modal, $log, toastr){
-	$scope.members = [];
-	$scope.loading = false;
-	$scope.member = '';
+app.controller('memberController', ['$http', 'uiGridConstants', '$modal', '$log', 'toastr', function ($http, uiGridConstants, $modal, $log, toastr){
+	
+	Member = this;
+
+	Member.members = [];
+	Member.loading = false;
+	Member.member = '';
  	
-	$scope.gridOptions = {
+	Member.gridOptions = {
         paginationPageSizes: [10, 25],
         paginationPageSize: 10,
         enableFiltering: true,
 		onRegisterApi: function(gridApi){
-			$scope.gridApi = gridApi;
+			Member.gridApi = gridApi;
 		},
         columnDefs: [
 			{
@@ -43,12 +46,12 @@ app.controller('memberController', ['$scope', '$http', 'uiGridConstants', '$moda
      * Initial function
      */
 
-	$scope.init = function() {
-		$scope.loading = true;
+	Member.init = function() {
+		Member.loading = true;
 		$http.get('/api/member').success(function(data, status, headers, config) {
-			$scope.members = data;
-		  	$scope.gridOptions.data = $scope.members;
-			$scope.loading = false;
+			Member.members = data;
+		  	Member.gridOptions.data = Member.members;
+			Member.loading = false;
 		});
 		
 	};	
@@ -58,38 +61,38 @@ app.controller('memberController', ['$scope', '$http', 'uiGridConstants', '$moda
      * Adding member function
      */
 
-	$scope.addMember = function() {
-		$scope.loading = true;
+	Member.addMember = function() {
+		Member.loading = true;
 
 		$http.post('/api/member', {
-			first_name: $scope.member.firstname,
-			middle_name: $scope.member.middlename,
-			last_name: $scope.member.lastname,
-			first_attend: $scope.member.firstattend
+			first_name: Member.member.firstname,
+			middle_name: Member.member.middlename,
+			last_name: Member.member.lastname,
+			first_attend: Member.member.firstattend
 		}).success(function(data, status, headers, config) {
-			$scope.members.push(data);
-			$scope.member = '';
-			$scope.loading = false;
+			Member.members.push(data);
+			Member.member = '';
+			Member.loading = false;
 			toastr.success('Record Successfully Added!.', 'Welcome!')
 		});
 	};
 
-	$scope.toggleFiltering = function(){
-		$scope.gridOptions.enableFiltering = !$scope.gridOptions.enableFiltering;
-		$scope.gridApi.core.notifyDataChange( uiGridConstants.dataChange.COLUMN );
+	Member.toggleFiltering = function(){
+		Member.gridOptions.enableFiltering = !Member.gridOptions.enableFiltering;
+		Member.gridApi.core.notifyDataChange( uiGridConstants.dataChange.COLUMN );
 	};	
 
-	$scope.openModalAddMember = function () {
+	Member.openModalAddMember = function () {
 		var modalInstance = $modal.open({
-			animation: $scope.animationsEnabled,
+			animation: Member.animationsEnabled,
 			templateUrl: 'myModalContent.html',
-			controller: 'ModalInstanceCtrl',
+			controller: 'ModalInstanceCtrl as ModalInstance',
 			size: 'lg'
 		});
 		
 		modalInstance.result.then(function (data) {
-			$scope.member = data;
-			$scope.addMember();
+			Member.member = data;
+			Member.addMember();
 		}, 
 		function () {
 			$log.info('Modal dismissed at: ' + new Date());
@@ -97,5 +100,5 @@ app.controller('memberController', ['$scope', '$http', 'uiGridConstants', '$moda
 	};
 
 
-	$scope.init();
+	Member.init();
 }]);
